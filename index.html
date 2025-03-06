@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p class="centered" id="counter"></p>
+    <div id="rules" class="up">
+        <h2 style="align-content: center;">Rules</h2>
+        <ol>
+            <li>Get to 55 points!</li>
+            <li>use your mouse to touch the dot for a point</li>
+            <li>Sometimes it will lock, click the red button to unlock it</li>
+            <li>Have Fun!</li>
+        </ol>
+    </div>
+    <div class="hint">
+        <div class="chat1" id="top-bottom"></div>
+        <div class="chat2" id="left-right"></div>
+        <div class="chat3" id="score"></div>
+    </div>
+    <div id="game-container">
+        <div id="character" class="up" style="left: 0; bottom: 0"></div>
+        <div id="wall_2" class="wall" style="left: 0; bottom: 0"></div>
+        <div id="dot" class="dotStyle" style="left: 0; bottom: 0"></div>
+        <div id="button" class="buttonStyle" style="left: 0; bottom: 0"></div>
+        <div onmousemove="myFunction(event)"></div>
+    </div>    <script src="script.js"></script>
+</body>
+</html>
