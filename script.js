@@ -1,6 +1,11 @@
 const box = document.getElementById('game-container');
 const char = document.getElementById("character");
 const dot = document.getElementById("dot");
+const fakeDot1 = document.getElementById("fakeDot1");
+const fakeDot2 = document.getElementById("fakeDot2");
+const fakeDot3 = document.getElementById("fakeDot3");
+const fakeDot4 = document.getElementById("fakeDot4");
+const fakeDot5 = document.getElementById("fakeDot5");
 const button = document.getElementById("button")
 const left_rightChat = document.getElementById("left-right");
 const top_bottomChat = document.getElementById("top-bottom");
@@ -29,31 +34,87 @@ let thisbottom = -300
 button.style.left = `${thisleft}px`
 button.style.top = `${thisbottom}px`
 
-let specialNum = 2
-let specialNum2 = 3
+let specialNum = Math.floor(Math.random() * (100 + point) - point)
+let specialNum2 = Math.floor(Math.random() * (100 + point) - point)
+let specialNum3 = Math.floor(Math.random() * (100 + point) - point)
+let specialNum4 = Math.floor(Math.random() * (100 + point) - point)
 
 //Add an invisible level where the background and the dot become the save color to be mysterious
 
 function ranNum(){
-    specialNum = Math.floor(Math.random() * (54))
+    if(specialNum + 1 == point){
+        specialNum = Math.floor(Math.random() * (100 + point) - point)
+    }
+    if(specialNum > 15 + point){
+        specialNum = specialNum - 5
+    }
+    if(specialNum < point){
+        specialNum = Math.floor(Math.random() * (100 + point) - point)
+    }
 }
 function ranNum2(){
-    specialNum2 = Math.floor(Math.random() * (54))
+    if(specialNum2 == point){
+        specialNum2 = Math.floor(Math.random() * (100 + point) - point)
+        if(specialNum2 == specialNum){
+            specialNum2 = Math.floor(Math.random() * (100 + point) - point)
+        }
+    }
+    if(specialNum2 > 25){
+        specialNum2 = specialNum2 - 5
+    }
+    if(specialNum2 < point){
+        specialNum2 = Math.floor(Math.random() * (100 + point) - point)
+    }
+}
+function ranNum3(){
+    if(specialNum3 == point){
+        specialNum3 = Math.floor(Math.random() * (100 + point) - point)
+        if(specialNum3 == specialNum2 || specialNum3 == specialNum){
+            specialNum3 = Math.floor(Math.random() * (100 + point) - point)
+        }
+    }
+    if(specialNum3 > 30){
+        specialNum3 = specialNum3 - 5
+    }
+    if(specialNum3 < point){
+        specialNum3 = Math.floor(Math.random() * (100 + point) - point)
+    }
+}
+function ranNum4(){
+    if(specialNum4 == point){
+        specialNum4 = Math.floor(Math.random() * (100 + point) - point)
+        if(specialNum4 == specialNum || specialNum4 == specialNum2 || specialNum == specialNum3){
+            specialNum4 = Math.floor(Math.random() * (100 + point) - point)
+        }
+    }
+    if(specialNum4 > 35){
+        specialNum4 = specialNum4 - 5
+    }
+    if(specialNum4 < point){
+        specialNum4 = Math.floor(Math.random() * (100 + point) - point)
+    }
 }
 
 change()
 
 function change() {
     console.log(specialNum)
+    console.log(specialNum2)
+    console.log(specialNum3)
+    console.log(specialNum4)
     const boxRect = box.getBoundingClientRect();
     const boxWidth = boxRect.width;
     const boxHeight = boxRect.height;
     //just in case I want to add a timer for a game over function
     if (!canChange) return;
     canChange = false;
-
-    if(!(point == specialNum)){
-        ranNum()
+    ranNum()
+    ranNum2()
+    ranNum3()
+    ranNum4()
+if(!(point == specialNum)){
+        box.style.backgroundColor = "white"
+        dot.style.border = "3px solid black"
     // Ensure the dot stays within the box and doesn't overflow
     let left = Math.floor(Math.random() * (boxWidth - 50));
     let bottom = Math.floor(Math.random() * (boxHeight - 50));
@@ -63,10 +124,12 @@ function change() {
     dot.style.top = `${bottom}px`;
 
     //displays the score
-    point++;
+    point++
     score.textContent = `Score = ${point}`;
 
     console.log("Dot spawned at:", left, bottom);
+     
+    dot.style.background = "linear-gradient(to right, black, gray, white)"
 
     let thisleft = -300
     let thisbottom = -300
@@ -106,11 +169,68 @@ if(point == specialNum){
         canChange = true;
     }, changeDelay);
 }
-if(point == 55){
- winner.style.color = "gold"
- winner.textContent = "You Win!"
- winner.style.fontSize = "60px"
+if(point == specialNum2){
+    let left = Math.floor(Math.random() * (boxWidth - 50));
+    let bottom = Math.floor(Math.random() * (boxHeight - 50));
+
+    dot.style.left = `${left}px`;
+    dot.style.top = `${bottom}px`;
+
+    box.style.backgroundColor = "blue"
+    dot.style.border = "3px solid blue"
+    dot.style.background = "blue"
+
+    score.textContent = `Score = ${point}`
+
+    console.log("Dot spawned at:", left, bottom);
+
+    setTimeout(() => {
+        canChange = true;
+    }, changeDelay);
 }
+if(point == specialNum3){
+    let left = Math.floor(Math.random() * (boxWidth - 50));
+    let bottom = Math.floor(Math.random() * (boxHeight - 50));
+
+    dot.style.left = `${left}px`;
+    dot.style.top = `${bottom}px`;
+
+    box.style.backgroundColor = "blue"
+    dot.style.border = "3px solid blue"
+    dot.style.background = "blue"
+
+    score.textContent = `Score = ${point}`
+
+    console.log("Dot spawned at:", left, bottom);
+
+    setTimeout(() => {
+        canChange = true;
+    }, changeDelay);
+}
+if(point == specialNum4){
+    let left = Math.floor(Math.random() * (boxWidth - 50));
+    let bottom = Math.floor(Math.random() * (boxHeight - 50));
+
+    dot.style.left = `${left}px`;
+    dot.style.top = `${bottom}px`;
+
+    box.style.backgroundColor = "blue"
+    dot.style.border = "3px solid blue"
+    dot.style.background = "blue"
+
+    score.textContent = `Score = ${point}`
+
+    console.log("Dot spawned at:", left, bottom);
+
+    setTimeout(() => {
+        canChange = true;
+    }, changeDelay);
+}
+if(point == 100){
+    winner.style.color = "gold"
+    winner.textContent = "You Win!"
+    winner.style.fontSize = "60px"
+   }
 }
 //Visually says "+1" to indicate you touched the dot
 function counter() {
@@ -127,8 +247,8 @@ function unlock(){
     console.log("I made it")
     dot.style.border = "3px solid black";
     score.textContent = `Score = ${point}`
-    }
-    point++;
+    };
+    point++
 }
 
 function changeColor(){
