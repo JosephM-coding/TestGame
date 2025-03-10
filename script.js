@@ -37,7 +37,7 @@ button.style.top = `${thisbottom}px`
 let specialNum = Math.floor(Math.random() * (100 + point) - point)
 let specialNum2 = Math.floor(Math.random() * (100 + point) - point)
 let specialNum3 = Math.floor(Math.random() * (100 + point) - point)
-let specialNum4 = Math.floor(Math.random() * (100 + point) - point)
+// let specialNum4 = Math.floor(Math.random() * (100 + point) - point)
 
 //Add an invisible level where the background and the dot become the save color to be mysterious
 
@@ -80,28 +80,29 @@ function ranNum3(){
         specialNum3 = Math.floor(Math.random() * (100 + point) - point)
     }
 }
-function ranNum4(){
-    if(specialNum4 == point){
-        specialNum4 = Math.floor(Math.random() * (100 + point) - point)
-        if(specialNum4 == specialNum || specialNum4 == specialNum2 || specialNum == specialNum3){
-            specialNum4 = Math.floor(Math.random() * (100 + point) - point)
-        }
-    }
-    if(specialNum4 > 35){
-        specialNum4 = specialNum4 - 5
-    }
-    if(specialNum4 < point){
-        specialNum4 = Math.floor(Math.random() * (100 + point) - point)
-    }
-}
+// function ranNum4(){
+//     if(specialNum4 == point){
+//         specialNum4 = Math.floor(Math.random() * (100 + point) - point)
+//         if(specialNum4 == specialNum || specialNum4 == specialNum2 || specialNum == specialNum3){
+//             specialNum4 = Math.floor(Math.random() * (100 + point) - point)
+//         }
+//     }
+//     if(specialNum4 > 35){
+//         specialNum4 = specialNum4 - 5
+//     }
+//     if(specialNum4 < point){
+//         specialNum4 = Math.floor(Math.random() * (100 + point) - point)
+//     }
+// }
 
 change()
 
 function change() {
+    changeback()
     console.log(specialNum)
     console.log(specialNum2)
     console.log(specialNum3)
-    console.log(specialNum4)
+    // console.log(specialNum4)
     const boxRect = box.getBoundingClientRect();
     const boxWidth = boxRect.width;
     const boxHeight = boxRect.height;
@@ -111,7 +112,7 @@ function change() {
     ranNum()
     ranNum2()
     ranNum3()
-    ranNum4()
+    // ranNum4()
 if(!(point == specialNum)){
         box.style.backgroundColor = "white"
         dot.style.border = "3px solid black"
@@ -191,13 +192,47 @@ if(point == specialNum2){
 if(point == specialNum3){
     let left = Math.floor(Math.random() * (boxWidth - 50));
     let bottom = Math.floor(Math.random() * (boxHeight - 50));
+  
 
     dot.style.left = `${left}px`;
     dot.style.top = `${bottom}px`;
 
-    box.style.backgroundColor = "blue"
-    dot.style.border = "3px solid blue"
-    dot.style.background = "blue"
+    let left1 = Math.floor(Math.random() * (boxWidth - 50));
+    let bottom1 = Math.floor(Math.random() * (boxHeight - 50));
+    fakeDot1.style.left = `${left1}px`;
+    fakeDot1.style.top = `${bottom1}px`;
+    fakeDot1.style.background = "linear-gradient(to right, white, gray, black);"
+    fakeDot1.style.border = "3px solid rgba(0, 0, 0, 100)"
+
+
+    let left2 = Math.floor(Math.random() * (boxWidth - 50));
+    let bottom2 = Math.floor(Math.random() * (boxHeight - 50));
+    fakeDot2.style.left = `${left2}px`;
+    fakeDot2.style.top = `${bottom2}px`;
+    fakeDot2.style.background = "linear-gradient(to right, black, gray, white)"
+    fakeDot2.style.border = "3px solid rgba(128, 128, 128, 100)"
+
+    let left3 = Math.floor(Math.random() * (boxWidth - 50));
+    let bottom3 = Math.floor(Math.random() * (boxHeight - 50));
+    fakeDot3.style.left = `${left3}px`;
+    fakeDot3.style.top = `${bottom3}px`;
+    fakeDot3.style.background = " linear-gradient(to right, black, gray, white)"
+    fakeDot3.style.border = "6px solid rgba(0, 0, 0, 100)"
+
+    let left4 = Math.floor(Math.random() * (boxWidth - 50));
+    let bottom4 = Math.floor(Math.random() * (boxHeight - 50));
+    fakeDot4.style.left = `${left4}px`;
+    fakeDot4.style.top = `${bottom4}px`;
+    fakeDot4.style.background = "linear-gradient(to right, black, gray, white)"
+    fakeDot4.style.border = "3px solid rgba(0, 0, 0, 100)"
+
+    let left5 = Math.floor(Math.random() * (boxWidth - 50));
+    let bottom5 = Math.floor(Math.random() * (boxHeight - 50));
+    fakeDot5.style.left = `${left5}px`;
+    fakeDot5.style.top = `${bottom5}px`;
+    fakeDot5.style.background = "linear-gradient(to right, black, gray, white)"
+    fakeDot5.style.border = "3px solid rgba(0, 0, 0, 100)"
+    
 
     score.textContent = `Score = ${point}`
 
@@ -207,30 +242,42 @@ if(point == specialNum3){
         canChange = true;
     }, changeDelay);
 }
-if(point == specialNum4){
-    let left = Math.floor(Math.random() * (boxWidth - 50));
-    let bottom = Math.floor(Math.random() * (boxHeight - 50));
+// if(point == specialNum4){
+//     let left = Math.floor(Math.random() * (boxWidth - 50));
+//     let bottom = Math.floor(Math.random() * (boxHeight - 50));
 
-    dot.style.left = `${left}px`;
-    dot.style.top = `${bottom}px`;
+//     dot.style.left = `${left}px`;
+//     dot.style.top = `${bottom}px`;
 
-    box.style.backgroundColor = "blue"
-    dot.style.border = "3px solid blue"
-    dot.style.background = "blue"
+//     box.style.backgroundColor = "blue"
+//     dot.style.border = "3px solid blue"
+//     dot.style.background = "blue"
 
-    score.textContent = `Score = ${point}`
+//     score.textContent = `Score = ${point}`
 
-    console.log("Dot spawned at:", left, bottom);
+//     console.log("Dot spawned at:", left, bottom);
 
-    setTimeout(() => {
-        canChange = true;
-    }, changeDelay);
-}
+//     setTimeout(() => {
+//         canChange = true;
+//     }, changeDelay);
+// }
 if(point == 100){
     winner.style.color = "gold"
     winner.textContent = "You Win!"
     winner.style.fontSize = "60px"
    }
+}
+function changeback(){
+    fakeDot1.style.background = "rgba(0, 0, 0, 0);"
+    fakeDot1.style.border = "3px solid rgba(0, 0, 0, 0)"
+    fakeDot2.style.background = "rgba(0, 0, 0, 0);"
+    fakeDot2.style.border = "3px solid rgba(0, 0, 0, 0)"
+    fakeDot3.style.background = "rgba(0, 0, 0, 0);"
+    fakeDot3.style.border = "3px solid rgba(0, 0, 0, 0)"
+    fakeDot4.style.background = "rgba(0, 0, 0, 0);"
+    fakeDot4.style.border = "3px solid rgba(0, 0, 0, 0)"
+    fakeDot5.style.background = "rgba(0, 0, 0, 0);"
+    fakeDot5.style.border = "3px solid rgba(0, 0, 0, 0)"
 }
 //Visually says "+1" to indicate you touched the dot
 function counter() {
@@ -294,6 +341,21 @@ window.addEventListener('mousemove', function(event) {
     }
     if (areElementsTouching(char, button)) {
         if(point == specialNum){unlock()}
+    }
+    if (areElementsTouching(char, fakeDot1)) {
+        if(point == specialNum3){point = point - 6; change()}
+    }
+    if (areElementsTouching(char, fakeDot2)) {
+        if(point == specialNum3){point = point - 6; change()}
+    }
+    if (areElementsTouching(char, fakeDot3)) {
+        if(point == specialNum3){point = point - 6; change()}
+    }
+    if (areElementsTouching(char, fakeDot4)) {
+        if(point == specialNum3){point = point - 6; change()}
+    }
+    if (areElementsTouching(char, fakeDot5)) {
+        if(point == specialNum3){point = point - 6; change()}
     }
 });
 
